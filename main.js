@@ -141,9 +141,35 @@ function openAdminForm(title, formType) {
             </form>
         `;
     }
-
-    document.getElementById('modalBody').innerHTML = bodyContent;
-    document.getElementById('adminModal').style.display = 'flex';
+    function handleFormSubmit(event, type) {
+    event.preventDefault();
+    
+    if (type === 'Student') {
+        let roll = document.getElementById('sRoll').value;
+        let name = document.getElementById('sName').value;
+        let studClass = document.getElementById('sClass').value;
+        let stream = document.getElementById('sStream').value;
+        let father = document.getElementById('sFather').value;
+        
+        // Table mein naya row add karne ke liye
+        let tableBody = document.querySelector('.portal-table tbody');
+        if (tableBody) {
+            let newRow = document.createElement('tr');
+            newRow.innerHTML = `
+    <td>${roll}</td>
+    <td>${name}</td>
+    <td>${studClass}</td>
+    <td>${stream}</td>
+    <td>${father}</td>
+    <td>Edit | Ledger</td>
+`;
+            tableBody.appendChild(newRow);
+        }
+    }
+    
+    alert(type + ' added successfully!');
+    closeAdminModal();
+}
 }
 
 function closeAdminModal() {
@@ -154,4 +180,25 @@ function handleFormSubmit(event, type) {
     event.preventDefault();
     alert(type + ' added successfully!');
     closeAdminModal();
+}
+document.addEventListener('DOMContentLoaded', () => {
+    const addStudentBtn = document.getElementById('addStudentBtn');
+    if (addStudentBtn) {
+        addStudentBtn.addEventListener('click', () => {
+            openAdminForm('Enrol New Student', 'student');
+        });
+    }
+});
+function handleStudentLogin(event) {
+    event.preventDefault();
+    let roll = document.getElementById('loginRoll').value;
+    let dob = document.getElementById('loginDob').value;
+    
+    if(roll && dob) {
+        // Yahan aap dashboard par redirect kar sakte hain
+        alert('Login Successful!');
+        window.location.href = 'student-dashboard.html'; // ya jo bhi aapka dashboard page ho
+    } else {
+        alert('Please enter valid details');
+    }
 }
