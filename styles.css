@@ -1258,3 +1258,137 @@ footer {
         width: 100%; /* stack menu buttons vertically on very small phones */
     }
 }
+/* Quick Portals Styling */
+.quick-portals-section {
+    background-color: #f4f6f8;
+    padding: 30px 0;
+}
+.section-title {
+    text-align: center;
+    margin-bottom: 25px;
+}
+.section-title h2 {
+    color: #0b6623;
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+.section-title p {
+    color: #666;
+    font-size: 0.85rem;
+}
+
+.portals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 15px;
+}
+
+.portal-card {
+    background: #ffffff;
+    padding: 20px 10px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.portal-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.icon-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 12px;
+    font-size: 20px;
+    color: #fff;
+}
+
+/* Individual Icon Colors */
+.icon-green  { background-color: #00a65a; }
+.icon-blue   { background-color: #3c8dbc; }
+.icon-purple { background-color: #605ca8; }
+.icon-orange { background-color: #ff851b; }
+.icon-teal   { background-color: #39ccd7; }
+.icon-pink   { background-color: #e83e8c; }
+.icon-yellow { background-color: #f39c12; }
+
+.portal-card h3 {
+    font-size: 0.95rem;
+    color: #333;
+    margin-bottom: 4px;
+    font-weight: 600;
+}
+.portal-card span {
+    font-size: 0.75rem;
+    color: #888;
+}
+
+/* Main Content Grid (About, Management, Notice) */
+.main-content-section {
+    background-color: #f4f6f8;
+    padding-bottom: 40px;
+}
+.content-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr;
+    gap: 20px;
+}
+.content-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+.content-card h2 {
+    font-size: 1rem;
+    color: #0b6623;
+    margin-bottom: 15px;
+    font-weight: 700;
+    border-bottom: 2px solid #eef2f5;
+    padding-bottom: 8px;
+}
+
+/* Management Profiles */
+.management-flex {
+    display: flex;
+    gap: 15px;
+    text-align: center;
+}
+.profile-box img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.profile-box h3 {
+    font-size: 0.9rem;
+    color: #333;
+    margin-top: 8px;
+}
+.profile-box .role {
+    font-size: 0.75rem;
+    color: #777;
+}
+.profile-box .quote {
+    font-size: 0.7rem;
+    color: #555;
+    font-style: italic;
+    margin: 8px 0;
+}
+
+.btn-green-xs, .btn-green-sm {
+    background: #0b6623;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.75rem;
+    display: inline-block;
+}
