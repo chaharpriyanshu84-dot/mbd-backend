@@ -424,6 +424,6 @@ app.get('*', (req, res) => {
 app.listen(PORT, () => {
     console.log(`===================================================`);
     console.log(` MBD College Doora backend listening on port ${PORT}`);
-    console.log(` Open http://localhost:${PORT} in your browser`);
+    console.log(` Open https://mbd-backend-keqo.onrender.com/: in your browser`);
     console.log(`===================================================`);
 });
