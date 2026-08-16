@@ -181,3 +181,11 @@ function handleFormSubmit(event, type) {
     alert(type + ' added successfully!');
     closeAdminModal();
 }
+document.addEventListener('DOMContentLoaded', () => {
+    const addStudentBtn = document.getElementById('addStudentBtn');
+    if (addStudentBtn) {
+        addStudentBtn.addEventListener('click', () => {
+            openAdminForm('Enrol New Student', 'student');
+        });
+    }
+});
