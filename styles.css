@@ -81,25 +81,34 @@ header {
     text-decoration: underline;
 }
 
-/* --- Hero Banner --- */
+/* --- Hero Banner Section --- */
 .hero-section {
     background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../../assets/images/college-building.jpg') center/cover;
-    padding: 60px 20px;
-    text-align: center;
+    padding: 60px 0;
     color: white;
 }
-.hero-section h2 {
-    font-size: 2.2rem;
-    margin-bottom: 10px;
+.hero-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
-.hero-section p {
+.hero-content {
+    max-width: 600px;
+}
+.hero-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+.hero-content p {
     font-size: 1rem;
     margin-bottom: 20px;
+    font-style: italic;
 }
 .hero-buttons {
     display: flex;
-    justify-content: center;
     gap: 15px;
+    justify-content: flex-start;
 }
 .btn-primary, .btn-secondary {
     padding: 8px 20px;
@@ -116,6 +125,24 @@ header {
     background: transparent;
     border: 1px solid white;
     color: white;
+}
+.hero-sidebar {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 20px;
+    border-radius: 8px;
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.admin-info h3 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #ffc107;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    padding-bottom: 5px;
+}
+.admin-info p {
+    font-size: 0.85rem;
+    margin-bottom: 6px;
 }
 
 /* --- Quick Portals Styling --- */
@@ -301,7 +328,7 @@ header {
     margin-left: auto;
 }
 
-.btn-green-xs, .btn-green-sm {
+.btn-green-xs {
     background: #0b6623;
     color: white;
     padding: 4px 10px;
