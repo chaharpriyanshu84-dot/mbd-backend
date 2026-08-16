@@ -4,395 +4,181 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Portal - MBD College Doora</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/styles.css">
-</head>
-<body style="background-color: var(--bg-light);">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: #f4f6f8; color: #333; display: flex; min-height: 100vh; flex-direction: column; }
+        
+        /* Top Navigation Header */
+        .admin-header { background: #005626; color: white; padding: 12px 25px; display: flex; justify-content: space-between; align-items: center; }
+        .admin-header h1 { font-size: 1.2rem; font-weight: 700; }
+        .admin-header p { font-size: 0.75rem; opacity: 0.8; }
+        .admin-profile-info { display: flex; align-items: center; gap: 15px; font-size: 0.85rem; }
+        .btn-logout { background: #dc3545; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 0.78rem; font-weight: 600; }
+        .btn-logout:hover { background: #b02a37; }
 
-    <!-- Header -->
-    <header>
-        <div class="header-container">
-            <div class="logo-section">
-                <div class="logo-placeholder">MBD</div>
-                <div class="title-section">
-                    <h1>MBD COLLEGE DOORA</h1>
-                    <p>Principal & Admin Dashboard Preview</p>
-                </div>
-            </div>
-            <div style="font-size:0.85rem; display:flex; align-items:center; gap:12px;">
-                <div style="text-align: right;">
-                    <div style="font-weight: 700; color: var(--primary-green-hover);">Dr. S.P. Verma (Principal)</div>
-                    <div style="font-size: 0.75rem; color: var(--text-muted);">Role: Administrator Desk</div>
-                </div>
-                <a href="index.html" class="btn btn-green" style="padding: 6px 12px; font-size:0.75rem;">Logout</a>
-            </div>
+        /* Main Dashboard Layout */
+        .dashboard-body { display: flex; flex: 1; }
+        
+        /* Sidebar Desk */
+        .sidebar { width: 240px; background: #ffffff; border-right: 1px solid #eef0f2; padding: 20px 0; }
+        .sidebar-title { font-size: 0.75rem; text-transform: uppercase; color: #888; padding: 0 20px 10px; font-weight: 700; letter-spacing: 0.5px; }
+        .sidebar-menu { list-style: none; }
+        .sidebar-menu li a { display: flex; align-items: center; gap: 12px; padding: 12px 20px; color: #444; text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: background 0.2s, color 0.2s; }
+        .sidebar-menu li a:hover, .sidebar-menu li.active a { background: #e8f5e9; color: #005626; border-left: 4px solid #005626; }
+        .sidebar-menu li a i { width: 18px; text-align: center; }
+
+        /* Content Area */
+        .content-area { flex: 1; padding: 30px; overflow-y: auto; }
+        .section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .section-header h2 { font-size: 1.3rem; color: #005626; font-weight: 700; }
+        
+        .btn-action { background: #005626; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-size: 0.82rem; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; text-decoration: none; }
+        .btn-action:hover { background: #00421d; }
+
+        /* Tables */
+        .data-table { width: 100%; background: #fff; border-radius: 8px; border-collapse: collapse; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.03); border: 1px solid #eef0f2; }
+        .data-table th, .data-table td { padding: 12px 15px; text-align: left; font-size: 0.82rem; border-bottom: 1px solid #f2f2f2; }
+        .data-table th { background: #fafafa; color: #444; font-weight: 600; }
+        .data-table tr:last-child td { border-bottom: none; }
+        .action-links a { color: #005626; text-decoration: none; font-weight: 600; margin-right: 10px; font-size: 0.78rem; }
+        .action-links a:hover { text-decoration: underline; }
+        .action-links a.delete { color: #dc3545; }
+
+        /* Modal Overlay */
+        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); justify-content: center; align-items: center; z-index: 1000; }
+        .modal-box { background: #fff; width: 100%; max-width: 450px; padding: 25px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); position: relative; }
+        .modal-box h3 { font-size: 1.1rem; color: #005626; margin-bottom: 15px; font-weight: 700; }
+        .form-group { margin-bottom: 12px; }
+        .form-group label { display: block; font-size: 0.78rem; font-weight: 600; color: #444; margin-bottom: 4px; }
+        .form-control { width: 100%; padding: 8px 12px; font-size: 0.82rem; border: 1px solid #ccc; border-radius: 5px; outline: none; }
+        .modal-btns { display: flex; justify-content: flex-end; gap: 10px; margin-top: 15px; }
+        .btn-cancel { background: #6c757d; color: white; border: none; padding: 7px 14px; border-radius: 5px; cursor: pointer; font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+
+    <!-- Top Admin Header -->
+    <header class="admin-header">
+        <div>
+            <h1>MBD COLLEGE DOORA</h1>
+            <p>Principal & Admin Dashboard Preview</p>
+        </div>
+        <div class="admin-profile-info">
+            <span>Dr. S.P. Verma (Principal)<br><strong style="font-size: 0.7rem; opacity: 0.8;">Role: Administrator Desk</strong></span>
+            <button class="btn-logout" onclick="window.location.href='index.html'">Logout</button>
         </div>
     </header>
 
-    <!-- Portal Body -->
-    <div class="portal-wrapper">
-        
-        <!-- Sidebar Navigation -->
-        <aside class="portal-sidebar">
-            <div class="portal-sidebar-title">
-                <h3>Management Desk</h3>
-                <p>MBD Administration</p>
-            </div>
-            <ul class="portal-menu">
-                <li class="active"><a href="#" data-tab="tab-admin-dash">
-                    <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
-                    Dashboard Stats
-                </a></li>
-                <li><a href="#" data-tab="tab-admin-teachers">
-                    <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                    Manage Teachers
-                </a></li>
-                <li><a href="#" data-tab="tab-admin-students">
-                    <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
-                    Manage Students
-                </a></li>
-                <li><a href="#" data-tab="tab-admin-notices">
-                    <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
-                    Manage Notices
-                </a></li>
-                <li><a href="#" data-tab="tab-admin-events">
-                    <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-                    Manage Events
-                </a></li>
-                <li><a href="#" data-tab="tab-admin-results">
-                    <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
-                    View Results
-                </a></li>
-                <li><a href="#" data-tab="tab-admin-attendance">
-                    <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-                    Attendance Stats
-                </a></li>
-                <li><a href="#" data-tab="tab-admin-website">
-                    <svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-                    Website Content
-                </a></li>
+    <div class="dashboard-body">
+        <!-- Sidebar Navigation Desk -->
+        <aside class="sidebar">
+            <div class="sidebar-title">Management Desk</div>
+            <ul class="sidebar-menu">
+                <li><a href="#"><i class="fa-solid fa-chart-pie"></i> Dashboard Stats</a></li>
+                <li><a href="#"><i class="fa-solid fa-chalkboard-user"></i> Manage Teachers</a></li>
+                <li class="active"><a href="#"><i class="fa-solid fa-user-graduate"></i> Manage Students</a></li>
+                <li><a href="#"><i class="fa-solid fa-bullhorn"></i> Manage Notices</a></li>
+                <li><a href="#"><i class="fa-solid fa-calendar-days"></i> Manage Events</a></li>
+                <li><a href="#"><i class="fa-solid fa-file-lines"></i> View Results</a></li>
+                <li><a href="#"><i class="fa-solid fa-clipboard-user"></i> Attendance Stats</a></li>
+                <li><a href="#"><i class="fa-solid fa-globe"></i> Website Content</a></li>
             </ul>
         </aside>
 
-        <!-- Main Dashboard View -->
-        <main class="portal-main">
-
-            <!-- Stats Dashboard Content -->
-            <div class="portal-tab-content active" id="tab-admin-dash">
-                <div class="portal-tab-header">
-                    <h2>College Administration Summary</h2>
-                </div>
-                
-                <!-- Quick Metric Widgets -->
-                <div class="dashboard-widgets">
-                    <div class="widget-card">
-                        <div class="widget-icon">
-                            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
-                        </div>
-                        <div class="widget-info">
-                            <h4>Total Students</h4>
-                            <p>420</p>
-                        </div>
-                    </div>
-                    <div class="widget-card">
-                        <div class="widget-icon">
-                            <svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                        </div>
-                        <div class="widget-info">
-                            <h4>Faculty Count</h4>
-                            <p>18</p>
-                        </div>
-                    </div>
-                    <div class="widget-card">
-                        <div class="widget-icon">
-                            <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
-                        </div>
-                        <div class="widget-info">
-                            <h4>Active Notices</h4>
-                            <p>8</p>
-                        </div>
-                    </div>
-                    <div class="widget-card">
-                        <div class="widget-icon">
-                            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-                        </div>
-                        <div class="widget-info">
-                            <h4>Enquiries</h4>
-                            <p>4</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Recent Activities Summary -->
-                <div class="content-card" style="margin-top:20px; padding:15px; margin-bottom: 0;">
-                    <h3 style="color:var(--primary-green); font-size:1.05rem; margin-bottom:10px;">Recent Grievances & Fee Enquiries</h3>
-                    <ul class="sidebar-list">
-                        <li class="sidebar-item">
-                            <span class="sidebar-item-date">Aug 16, 2026 - Parent Feedback</span>
-                            <div style="font-weight:600;">Request for details on transport routes</div>
-                            <p style="font-size:0.8rem; color:var(--text-muted);">Sender: Ramesh Kumar (Guardian of Rahul Kumar)</p>
-                        </li>
-                        <li class="sidebar-item">
-                            <span class="sidebar-item-date">Aug 14, 2026 - Admissions</span>
-                            <div style="font-weight:600;">Enquiry regarding subject combinations eligibility</div>
-                            <p style="font-size:0.8rem; color:var(--text-muted);">Sender: Offline counseling desk log</p>
-                        </li>
-                    </ul>
-                </div>
+        <!-- Dynamic Content Section -->
+        <main class="content-area">
+            <div class="section-header">
+                <h2>Manage Student Enrolment</h2>
+                <button class="btn-action" id="openStudentModal"><i class="fa-solid fa-plus"></i> Add Student</button>
             </div>
 
-            <!-- Manage Teachers Content -->
-            <div class="portal-tab-content" id="tab-admin-teachers">
-                <div class="portal-tab-header">
-                    <h2>Manage Faculty Directory</h2>
-                    <button onclick="openAdminForm('Register New Teacher', 'faculty')"</button>
-                </div>
-                <div class="portal-table-container">
-                    <table class="portal-table">
-                        <thead>
-                            <tr>
-                                <th>Staff ID</th>
-                                <th>Faculty Name</th>
-                                <th>Department Stream</th>
-                                <th>Assigned Subjects</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>T-2026-015</td>
-                                <td>Prof. S. Kumar</td>
-                                <td>Science Stream</td>
-                                <td>AC-101, AC-103</td>
-                                <td><a href="#" onclick="alert('Loading profile settings...');">Edit</a> | <a href="#" style="color:var(--accent-orange);" onclick="alert('Confirm deactivation?');">Deactivate</a></td>
-                            </tr>
-                            <tr>
-                                <td>T-2026-016</td>
-                                <td>Dr. M. Chahar [Placeholder]</td>
-                                <td>Arts / Humanities</td>
-                                <td>AC-102</td>
-                                <td><a href="#" onclick="alert('Loading profile settings...');">Edit</a> | <a href="#" style="color:var(--accent-orange);" onclick="alert('Confirm deactivation?');">Deactivate</a></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- Manage Students Content -->
-            <div class="portal-tab-content" id="tab-admin-students">
-                <div class="portal-tab-header">
-                    <h2>Manage Student Enrolment</h2>
-                </div>
-
-                    <button class="btn btn-green" id="addStudentBtn" style="padding: 6px 12px; font-size: 0.8rem;">+ Add Student</button>
-                <div class="portal-table-container">
-                    <table class="portal-table">
-                        <thead>
-                            <tr>
-                                <th>Roll No</th>
-                                <th>Student Name</th>
-                                <th>Stream Group</th>
-                                <th>Father Name</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>MBD-2026-041</td>
-                                <td>Amit Sharma</td>
-                                <td>First Year [Batch A]</td>
-                                <td>Shri A. Sharma</td>
-                                <td><a href="#" onclick="alert('Edit student records');">Edit</a> | <a href="#" onclick="alert('Open full ledger');">Ledger</a></td>
-                            </tr>
-                            <tr>
-                                <td>MBD-2026-042</td>
-                                <td>Rahul Kumar</td>
-                                <td>First Year [Batch A]</td>
-                                <td>Shri Ramesh Kumar</td>
-                                <td><a href="#" onclick="alert('Edit student records');">Edit</a> | <a href="#" onclick="alert('Open full ledger');">Ledger</a></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- Manage Notices Content -->
-            <div class="portal-tab-content" id="tab-admin-notices">
-                <div class="portal-tab-header">
-                    <h2>Manage Notice Board Circulars</h2>
-                    <button class="btn btn-green" onclick="alert('Open form: Create Global Notice');" style="padding: 6px 12px; font-size: 0.8rem;">+ Add Notice</button>
-                </div>
-                <div class="portal-table-container">
-                    <table class="portal-table">
-                        <thead>
-                            <tr>
-                                <th>Date</th>
-                                <th>Notice Title</th>
-                                <th>Scope Target</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Aug 15, 2026</td>
-                                <td>Independence Day Celebration Guidelines</td>
-                                <td>Entire College</td>
-                                <td><a href="#" onclick="alert('Edit notice content');">Edit</a> | <a href="#" style="color:var(--accent-orange);" onclick="alert('Confirm notice deletion?');">Delete</a></td>
-                            </tr>
-                            <tr>
-                                <td>Aug 10, 2026</td>
-                                <td>Academic Registration Guidelines 2026-27</td>
-                                <td>Entire College</td>
-                                <td><a href="#" onclick="alert('Edit notice content');">Edit</a> | <a href="#" style="color:var(--accent-orange);" onclick="alert('Confirm notice deletion?');">Delete</a></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- Manage Events Content -->
-            <div class="portal-tab-content" id="tab-admin-events">
-                <div class="portal-tab-header">
-                    <h2>Manage Campus Events</h2>
-                    <button class="btn btn-green" onclick="alert('Open form: Create Event');" style="padding: 6px 12px; font-size: 0.8rem;">+ Add Event</button>
-                </div>
-                <div class="portal-table-container">
-                    <table class="portal-table">
-                        <thead>
-                            <tr>
-                                <th>Event Date</th>
-                                <th>Event Title Name</th>
-                                <th>Venue Location</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Sept 05, 2026</td>
-                                <td>Teacher's Day Cultural Program</td>
-                                <td>Seminar Hall</td>
-                                <td><a href="#" onclick="alert('Edit event details');">Edit</a> | <a href="#" style="color:var(--accent-orange);" onclick="alert('Delete event');">Delete</a></td>
-                            </tr>
-                            <tr>
-                                <td>Oct 12, 2026</td>
-                                <td>Annual Inter-Stream Science Exhibition</td>
-                                <td>Main Labs Section</td>
-                                <td><a href="#" onclick="alert('Edit event details');">Edit</a> | <a href="#" style="color:var(--accent-orange);" onclick="alert('Delete event');">Delete</a></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- Results Content -->
-            <div class="portal-tab-content" id="tab-admin-results">
-                <div class="portal-tab-header">
-                    <h2>Class Grading & Results Log</h2>
-                </div>
-                <p style="font-size:0.85rem; margin-bottom: 12px;">Browse overall result statistics submitted by faculty members:</p>
-                <div class="portal-table-container">
-                    <table class="portal-table">
-                        <thead>
-                            <tr>
-                                <th>Subject Code</th>
-                                <th>Instructor Name</th>
-                                <th>Registered Students</th>
-                                <th>Marks Entered Status</th>
-                                <th>Approval Desk</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>AC-101</td>
-                                <td>Prof. S. Kumar</td>
-                                <td>120 Students</td>
-                                <td><span class="badge badge-success">Fully Completed</span></td>
-                                <td><button class="btn btn-green" style="padding:2px 6px; font-size:0.7rem;" onclick="alert('Grades Approved.');">Approve Grades</button></td>
-                            </tr>
-                            <tr>
-                                <td>AC-102</td>
-                                <td>Dr. M. Chahar</td>
-                                <td>110 Students</td>
-                                <td><span class="badge badge-warning">Awaiting Submission</span></td>
-                                <td>-</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- Attendance Stats Content -->
-            <div class="portal-tab-content" id="tab-admin-attendance">
-                <div class="portal-tab-header">
-                    <h2>Overall Campus Attendance Statistics</h2>
-                </div>
-                <div class="portal-table-container">
-                    <table class="portal-table">
-                        <thead>
-                            <tr>
-                                <th>Stream / Batch Code</th>
-                                <th>Average Attendance</th>
-                                <th>Low Attendance Alerts</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>[First Year Stream Batch]</td>
-                                <td>84.6% Average</td>
-                                <td>3 Students below 75%</td>
-                            </tr>
-                            <tr>
-                                <td>[Second Year Stream Batch]</td>
-                                <td>81.2% Average</td>
-                                <td>6 Students below 75%</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- Website Content Editor Content -->
-            <div class="portal-tab-content" id="tab-admin-website">
-                <div class="portal-tab-header">
-                    <h2>Modify Website Static Content (Preview)</h2>
-                </div>
-                <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom: 15px;">
-                    Administrators can preview adjustments to text segments appearing on public informational pages.
-                </p>
-                <form onsubmit="alert('Changes saved in mock preview database.'); return false;" style="display:flex; flex-direction:column; gap:12px;">
-                    <div class="form-group">
-                        <label for="vision-input">About Page - Our Vision Text</label>
-                        <textarea id="vision-input" class="form-control" rows="3">To be a trusted learning center that shapes individuals into skilled professionals and ethical global citizens, driving positive change in society through knowledge and character.</textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="mission-input">About Page - Our Mission Text</label>
-                        <textarea id="mission-input" class="form-control" rows="3">To deliver student-focused instruction through well-structured lesson plans. To create a learning atmosphere that values curiosity, innovation, and character building.</textarea>
-                    </div>
-                    <button type="submit" class="btn btn-green" style="align-self:flex-start;">Update Web Content</button>
-                </form>
-            </div>
-
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Roll No</th>
+                        <th>Student Name</th>
+                        <th>Stream Group</th>
+                        <th>Father Name</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>MBD-2026-041</td>
+                        <td>Amit Sharma</td>
+                        <td>First Year (Batch A)</td>
+                        <td>Shri A. Sharma</td>
+                        <td class="action-links">
+                            <a href="#">Edit</a> <a href="#" class="delete">Delete</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>MBD-2026-042</td>
+                        <td>Rahul Kumar</td>
+                        <td>First Year (Batch A)</td>
+                        <td>Shri Ramesh Kumar</td>
+                        <td class="action-links">
+                            <a href="#">Edit</a> <a href="#" class="delete">Delete</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </main>
     </div>
 
-    <!-- Footer -->
-    <footer style="padding: 15px 20px; border-top: none; background-color: #1e293b;">
-        <div class="footer-bottom" style="margin-top: 0; padding-top: 0; border-top: none;">
-            <p>&copy; 2026 MBD College Doora. All Rights Reserved. | </p>
+    <!-- Add Student Modal Popup -->
+    <div class="modal-overlay" id="studentModal">
+        <div class="modal-box">
+            <h3>Add New Student</h3>
+            <form id="addStudentForm">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" class="form-control" placeholder="Enter student name" required>
+                </div>
+                <div class="form-group">
+                    <label>Roll Number</label>
+                    <input type="text" class="form-control" placeholder="e.g., MBD-2026-043" required>
+                </div>
+                <div class="form-group">
+                    <label>Stream Group</label>
+                    <input type="text" class="form-control" placeholder="e.g., B.Sc. 1st Year" required>
+                </div>
+                <div class="form-group">
+                    <label>Father's Name</label>
+                    <input type="text" class="form-control" placeholder="Enter father's name" required>
+                </div>
+                <div class="modal-btns">
+                    <button type="button" class="btn-cancel" id="closeStudentModal">Cancel</button>
+                    <button type="submit" class="btn-action">Save Student</button>
+                </div>
+            </form>
         </div>
-    </footer>
-
-    <script src="assets/js/main.js"></script>
-    <!-- Generic Admin Action Modal -->
-<div id="adminModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:1000; justify-content:center; align-items:center;">
-  <div style="background:white; padding:20px; border-radius:8px; width:400px; max-width:90%; position:relative;">
-    <h3 id="modalTitle" style="margin-top:0;">Form Title</h3>
-    <div id="modalBody">
-      <!-- Form fields yahan dynamically aayenge -->
     </div>
-    <br>
-    <button onclick="closeAdminModal()" style="background:#ccc; border:none; padding:8px 15px; cursor:pointer; border-radius:4px;">Cancel</button>
-  </div>
-</div>
+
+    <!-- JavaScript to Handle Modals Properly -->
+    <script>
+        const modal = document.getElementById('studentModal');
+        const openBtn = document.getElementById('openStudentModal');
+        const closeBtn = document.getElementById('closeStudentModal');
+
+        openBtn.onclick = function() {
+            modal.style.display = 'flex';
+        }
+
+        closeBtn.onclick = function() {
+            modal.style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+
 </body>
 </html>
+
+           
