@@ -10,23 +10,35 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
         body { background-color: #f4f6f8; color: #333; }
         .container { width: 90%; max-width: 1200px; margin: 0 auto; }
+        
         .top-bar { background: #0b6623; color: #fff; padding: 8px 5%; display: flex; justify-content: space-between; font-size: 0.8rem; }
         .top-bar-left, .top-bar-right { display: flex; gap: 20px; }
+        
         header { background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
         .header-container { display: flex; align-items: center; padding: 15px 5%; gap: 15px; }
         .logo-placeholder { width: 50px; height: 50px; background: #0b6623; color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; border-radius: 50%; }
         .title-section h1 { font-size: 1.4rem; color: #0b6623; }
         .title-section p { font-size: 0.8rem; color: #666; }
+        
         .nav-menu { background: #0b6623; display: flex; justify-content: center; list-style: none; padding: 10px 0; gap: 25px; margin: 0; }
         .nav-menu li a { color: white; text-decoration: none; font-size: 0.85rem; font-weight: 500; }
         .nav-menu li a:hover { text-decoration: underline; }
-        .hero-section { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), #0b6623; padding: 60px 0; color: white; }
-        .hero-flex { display: flex; justify-content: space-between; align-items: center; }
-        .hero-content h1 { font-size: 2.5rem; margin-bottom: 10px; font-weight: 700; }
+        
+        /* Hero Section with Right Side Image/Card */
+        .hero-section { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('assets/images/college-building.jpg') center/cover; padding: 60px 0; color: white; }
+        .hero-flex { display: flex; justify-content: space-between; align-items: center; gap: 30px; }
+        .hero-content { max-width: 600px; }
+        .hero-content h1 { font-size: 2.3rem; margin-bottom: 10px; font-weight: 700; }
         .hero-content p { font-size: 1rem; margin-bottom: 20px; font-style: italic; }
         .hero-buttons { display: flex; gap: 15px; }
-        .btn-primary { background: #00a65a; color: white; padding: 8px 20px; border-radius: 4px; text-decoration: none; font-size: 0.9font-weight: 500; }
+        .btn-primary { background: #00a65a; color: white; padding: 8px 20px; border-radius: 4px; text-decoration: none; font-size: 0.9rem; font-weight: 500; }
         .btn-secondary { background: transparent; border: 1px solid white; color: white; padding: 8px 20px; border-radius: 4px; text-decoration: none; font-size: 0.9rem; }
+        
+        /* Right Side Sidebar Card */
+        .hero-sidebar { background: rgba(0, 0, 0, 0.5); padding: 20px; border-radius: 8px; backdrop-filter: blur(4px); border: 1px solid rgba(255, 255, 255, 0.2); min-width: 280px; }
+        .admin-info h3 { font-size: 1rem; margin-bottom: 10px; color: #ffc107; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 5px; }
+        .admin-info p { font-size: 0.85rem; margin-bottom: 6px; }
+
         .quick-portals-section { padding: 30px 0; }
         .section-title { text-align: center; margin-bottom: 25px; }
         .section-title h2 { color: #0b6623; font-size: 1.2rem; font-weight: 700; }
@@ -76,6 +88,7 @@
         </ul>
     </header>
 
+    <!-- Hero Section with Right Side Info Box & College Background Photo -->
     <section class="hero-section">
         <div class="container hero-flex">
             <div class="hero-content">
@@ -84,6 +97,13 @@
                 <div class="hero-buttons">
                     <a href="admission.html" class="btn-primary">Apply Now</a>
                     <a href="about.html" class="btn-secondary">Explore More</a>
+                </div>
+            </div>
+            <div class="hero-sidebar">
+                <div class="admin-info">
+                    <h3>Management</h3>
+                    <p><strong>Manager:</strong> Dr. Bhuri Singh</p>
+                    <p><strong>Principal:</strong> Dr. S.P. Verma</p>
                 </div>
             </div>
         </div>
