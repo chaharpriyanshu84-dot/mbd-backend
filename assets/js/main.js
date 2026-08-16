@@ -110,3 +110,44 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+function openAdminForm(title, formType) {
+    document.getElementById('modalTitle').innerText = title;
+    let bodyContent = '';
+
+    if (formType === 'student') {
+        bodyContent = `
+            <form onsubmit="handleFormSubmit(event, 'Student')">
+                <label>Student Name:</label><br>
+                <input type="text" id="sName" required style="width:100%; padding:6px; margin-bottom:10px;"><br>
+                <label>Stream Group:</label><br>
+                <input type="text" id="sStream" required style="width:100%; padding:6px; margin-bottom:10px;"><br>
+                <label>Father Name:</label><br>
+                <input type="text" id="sFather" required style="width:100%; padding:6px; margin-bottom:10px;"><br>
+                <button type="submit" style="background:green; color:white; border:none; padding:8px 15px; cursor:pointer; border-radius:4px;">Add Student</button>
+            </form>
+        `;
+    } else if (formType === 'faculty') {
+        bodyContent = `
+            <form onsubmit="handleFormSubmit(event, 'Faculty')">
+                <label>Faculty Name:</label><br>
+                <input type="text" id="fName" required style="width:100%; padding:6px; margin-bottom:10px;"><br>
+                <label>Department:</label><br>
+                <input type="text" id="fDept" required style="width:100%; padding:6px; margin-bottom:10px;"><br>
+                <button type="submit" style="background:green; color:white; border:none; padding:8px 15px; cursor:pointer; border-radius:4px;">Add Faculty</button>
+            </form>
+        `;
+    }
+
+    document.getElementById('modalBody').innerHTML = bodyContent;
+    document.getElementById('adminModal').style.display = 'flex';
+}
+
+function closeAdminModal() {
+    document.getElementById('adminModal').style.display = 'none';
+}
+
+function handleFormSubmit(event, type) {
+    event.preventDefault();
+    alert(type + ' added successfully!');
+    closeAdminModal();
+}
