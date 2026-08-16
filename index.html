@@ -4,15 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MBD College Doora - Excellence in Education, Character & Career</title>
-    <meta name="description" content="Welcome to MBD College Doora. Providing quality education, fostering character building, and preparing students for career success.">
-    <!-- FontAwesome Icons Link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: #f4f6f8; color: #333; }
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; }
+        .top-bar { background: #0b6623; color: #fff; padding: 8px 5%; display: flex; justify-content: space-between; font-size: 0.8rem; }
+        .top-bar-left, .top-bar-right { display: flex; gap: 20px; }
+        header { background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .header-container { display: flex; align-items: center; padding: 15px 5%; gap: 15px; }
+        .logo-placeholder { width: 50px; height: 50px; background: #0b6623; color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; border-radius: 50%; }
+        .title-section h1 { font-size: 1.4rem; color: #0b6623; }
+        .title-section p { font-size: 0.8rem; color: #666; }
+        .nav-menu { background: #0b6623; display: flex; justify-content: center; list-style: none; padding: 10px 0; gap: 25px; margin: 0; }
+        .nav-menu li a { color: white; text-decoration: none; font-size: 0.85rem; font-weight: 500; }
+        .nav-menu li a:hover { text-decoration: underline; }
+        .hero-section { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), #0b6623; padding: 60px 0; color: white; }
+        .hero-flex { display: flex; justify-content: space-between; align-items: center; }
+        .hero-content h1 { font-size: 2.5rem; margin-bottom: 10px; font-weight: 700; }
+        .hero-content p { font-size: 1rem; margin-bottom: 20px; font-style: italic; }
+        .hero-buttons { display: flex; gap: 15px; }
+        .btn-primary { background: #00a65a; color: white; padding: 8px 20px; border-radius: 4px; text-decoration: none; font-size: 0.9font-weight: 500; }
+        .btn-secondary { background: transparent; border: 1px solid white; color: white; padding: 8px 20px; border-radius: 4px; text-decoration: none; font-size: 0.9rem; }
+        .quick-portals-section { padding: 30px 0; }
+        .section-title { text-align: center; margin-bottom: 25px; }
+        .section-title h2 { color: #0b6623; font-size: 1.2rem; font-weight: 700; }
+        .portals-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; }
+        .portal-card { background: #ffffff; padding: 20px 10px; border-radius: 12px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-decoration: none; display: block; }
+        .icon-circle { width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; font-size: 20px; color: #fff; }
+        .icon-green { background-color: #00a65a; }
+        .icon-blue { background-color: #3c8dbc; }
+        .icon-purple { background-color: #605ca8; }
+        .icon-orange { background-color: #ff851b; }
+        .portal-card h3 { font-size: 0.95rem; color: #333; margin-bottom: 4px; font-weight: 600; }
+        .portal-card span { font-size: 0.75rem; color: #888; }
+    </style>
 </head>
 <body>
 
-    <!-- Top Info Bar -->
     <div class="top-bar">
         <div class="top-bar-left">
             <span><i class="fa-solid fa-location-dot"></i> Location: Doora</span>
@@ -24,7 +54,6 @@
         </div>
     </div>
 
-    <!-- Header & Navigation -->
     <header>
         <div class="header-container container">
             <div class="logo-placeholder">MBD</div>
@@ -47,7 +76,6 @@
         </ul>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero-section">
         <div class="container hero-flex">
             <div class="hero-content">
@@ -58,17 +86,9 @@
                     <a href="about.html" class="btn-secondary">Explore More</a>
                 </div>
             </div>
-            <div class="hero-sidebar">
-                <div class="admin-info">
-                    <h3>Management</h3>
-                    <p><strong>Manager:</strong> Dr. Bhuri Singh</p>
-                    <p><strong>Principal:</strong> Dr. S.P. Verma</p>
-                </div>
-            </div>
         </div>
     </section>
 
-    <!-- Quick Portals Section -->
     <section class="quick-portals-section">
         <div class="container">
             <div class="section-title">
