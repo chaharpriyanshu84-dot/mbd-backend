@@ -75,55 +75,50 @@
 
     <script>
         const form = document.getElementById('register-form');
-        const alertBox = document.getElementById('alert-box');
+const alertBox = document.getElementById('alert-box');
 
-        form.addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            const name = document.getElementById('full-name').value.trim();
-            const regNo = document.getElementById('reg-no').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const password = document.getElementById('password').value;
-            const course = document.getElementById('course').value.trim();
+form.addEventListener('submit', async function(e) {
+    e.preventDefault();
 
-            alertBox.style.display = 'none';
+    // Naye fields ke IDs ke mutabik values fetch kar rahe hain
+    const name = document.getElementById('reg-name').value.trim();
+    const fname = document.getElementById('reg-fname').value.trim();
+    const dob = document.getElementById('reg-dob').value;
+    const regno = document.getElementById('reg-roll').value.trim();
+    const studentClass = document.getElementById('reg-class').value.trim();
+    const mobile = document.getElementById('reg-mobile').value.trim();
+    const email = document.getElementById('reg-email').value.trim();
 
-            try {
-                const response = await fetch('/api/register/student', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ name, regNo, email, password, course })
-                });
+    if(alertBox) alertBox.style.display = 'none';
 
-                const data = await response.json();
-
-                if (!response.ok) {
-                    throw new Error(data.error || 'Registration failed');
-                }
-
-                // Show success message
-                alertBox.style.backgroundColor = '#dcfce7';
-                alertBox.style.color = '#15803d';
-                alertBox.style.border = '1px solid #bbf7d0';
-                alertBox.textContent = data.message;
-                alertBox.style.display = 'block';
-
-                form.reset();
-
-                // Redirect to login page after 2 seconds
-                setTimeout(() => {
-                    window.location.href = 'student-login.html';
-                }, 2000);
-
-            } catch (err) {
-                // Show error message
-                alertBox.style.backgroundColor = '#fee2e2';
-                alertBox.style.color = '#b91c1c';
-                alertBox.style.border = '1px solid #fecaca';
-                alertBox.textContent = err.message;
-                alertBox.style.display = 'block';
-            }
+    try {
+        const response = await fetch('/api/register/student', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ 
+                name, 
+                fname, 
+                dob, 
+                regno, 
+                class: studentClass, 
+                mobile, 
+                email 
+            })
         });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            alert('Student Registered Successfully!');
+            form.reset();
+        } else {
+            alert(data.message || 'Registration failed!');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Something went wrong. Please try again.');
+    }
+});
     </script>
 </body>
 </html>
