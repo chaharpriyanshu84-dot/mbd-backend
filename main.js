@@ -115,18 +115,22 @@ function openAdminForm(title, formType) {
     let bodyContent = '';
 
     if (formType === 'student') {
-        bodyContent = `
-            <form onsubmit="handleFormSubmit(event, 'Student')">
-               und:green; color:white; border:none; p <label>Student Name:</label><br>
-                <input type="text" id="sName" required style="width:100%; padding:6px; margin-bottom:10px;"><br>
-                <label>Stream Group:</label><br>
-                <input type="text" id="sStream" required style="width:100%; padding:6px; margin-bottom:10px;"><br>
-                <label>Father Name:</label><br>
-                <input type="text" id="sFather" required style="width:100%; padding:6px; margin-bottom:10px;"><br>
-                <button type="submit" style="backgroadding:8px 15px; cursor:pointer; border-radius:4px;">Add Student</button>
-            </form>
-        `;
-    } else if (formType === 'faculty') {
+    bodyContent = `
+        <form onsubmit="handleFormSubmit(event, 'Student')">
+            <label>Roll No:</label><br>
+            <input type="text" id="sRoll" required style="width:100%; padding:6px; margin-bottom:10px;"><br>
+            <label>Student Name:</label><br>
+            <input type="text" id="sName" required style="width:100%; padding:6px; margin-bottom:10px;"><br>
+            <label>Class:</label><br>
+            <input type="text" id="sClass" required style="width:100%; padding:6px; margin-bottom:10px;"><br>
+            <label>Stream Group:</label><br>
+            <input type="text" id="sStream" required style="width:100%; padding:6px; margin-bottom:10px;"><br>
+            <label>Father Name:</label><br>
+            <input type="text" id="sFather" required style="width:100%; padding:6px; margin-bottom:10px;"><br>
+            <button type="submit" style="background:green; color:white; border:none; padding:8px 15px; cursor:pointer; border-radius:4px;">Add Student</button>
+        </form>
+    `;
+} else if (formType === 'faculty') {
         bodyContent = `
             <form onsubmit="handleFormSubmit(event, 'Faculty')">
                 <label>Faculty Name:</label><br>
