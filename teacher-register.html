@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Registration - MBD College Doora</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body style="background-color: var(--bg-light);">
+
+    <!-- Header bar to maintain brand feel -->
+    <header>
+        <div class="header-container" style="justify-content: center;">
+            <div class="logo-section">
+                <div class="logo-placeholder">MBD</div>
+                <div class="title-section">
+                    <h1>MBD COLLEGE DOORA</h1>
+                    <p style="text-align: center;">Excellence in Education, Character & Career</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="login-wrapper" style="padding-top: 20px; padding-bottom: 40px;">
+        <div class="login-card" style="max-width: 480px;">
+            <div class="login-header">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--primary-green)" stroke-width="2" style="width: 48px; height: 48px; margin: 0 auto 10px auto; display: block;"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/><line x1="12" y1="11" x2="12" y2="17"/><line x1="9" y1="14" x2="15" y2="14"/></svg>
+                <h2>Teacher & Staff Registration</h2>
+                <p>Create a staff account to access the management portal</p>
+            </div>
+
+            <!-- Error/Success Alert Box -->
+            <div id="alert-box" style="display: none; padding: 10px 15px; border-radius: 4px; margin-bottom: 15px; font-size: 0.85rem; font-weight: 500;"></div>
+
+            <!-- Registration Form -->
+            <form id="register-form">
+                <div class="form-group">
+                    <label for="full-name">Full Name</label>
+                    <input type="text" id="full-name" class="form-control" placeholder="e.g., Prof. Rajesh Sharma" required>
+                </div>
+                <div class="form-group">
+                    <label for="staff-id">Staff ID Code</label>
+                    <input type="text" id="staff-id" class="form-control" placeholder="e.g., T-2026-004" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" class="form-control" placeholder="e.g., rajesh@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" class="form-control" placeholder="Create a secure password" required minlength="6">
+                </div>
+                <div class="form-group">
+                    <label for="department">Department</label>
+                    <input type="text" id="department" class="form-control" placeholder="e.g., Mathematics, Science, Humanities" required>
+                </div>
+                
+                <button type="submit" class="btn btn-green" style="width: 100%; padding: 10px; margin-top: 10px;">Register Teacher</button>
+            </form>
+
+            <div class="login-footer" style="margin-top: 20px;">
+                <p>Already have a staff account? <a href="teacher-login.html">Log in here</a></p>
+                <p style="margin-top: 8px;"><a href="index.html">Return to main page</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Details footer -->
+    <footer style="padding: 15px 20px; border-top: none; background-color: #1e293b;">
+        <div class="footer-bottom" style="margin-top: 0; padding-top: 0; border-top: none;">
+            <p>&copy; 2026 MBD College Doora. All Rights Reserved. | Made by Mayank Chahar</p>
+        </div>
+    </footer>
+
+    <script>
+        const form = document.getElementById('register-form');
+        const alertBox = document.getElementById('alert-box');
+
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('full-name').value.trim();
+            const staffId = document.getElementById('staff-id').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+            const department = document.getElementById('department').value.trim();
+
+            alertBox.style.display = 'none';
+
+            try {
+                const response = await fetch('/api/register/teacher', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, staffId, email, password, department })
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(data.error || 'Registration failed');
+                }
+
+                // Show success message
+                alertBox.style.backgroundColor = '#dcfce7';
+                alertBox.style.color = '#15803d';
+                alertBox.style.border = '1px solid #bbf7d0';
+                alertBox.textContent = data.message;
+                alertBox.style.display = 'block';
+
+                form.reset();
+
+                // Redirect to login page after 2 seconds
+                setTimeout(() => {
+                    window.location.href = 'teacher-login.html';
+                }, 2000);
+
+            } catch (err) {
+                // Show error message
+                alertBox.style.backgroundColor = '#fee2e2';
+                alertBox.style.color = '#b91c1c';
+                alertBox.style.border = '1px solid #fecaca';
+                alertBox.textContent = err.message;
+                alertBox.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>

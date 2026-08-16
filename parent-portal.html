@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parent Portal - MBD College Doora</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body style="background-color: var(--bg-light);">
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo-section">
+                <div class="logo-placeholder">MBD</div>
+                <div class="title-section">
+                    <h1>MBD COLLEGE DOORA</h1>
+                    <p>Parent & Guardian Dashboard Preview</p>
+                </div>
+            </div>
+            <div style="font-size:0.85rem; display:flex; align-items:center; gap:12px;">
+                <div style="text-align: right;">
+                    <div style="font-weight: 700; color: var(--primary-green-hover);">Ramesh Kumar (Guardian)</div>
+                    <div style="font-size: 0.75rem; color: var(--text-muted);">Child: Rahul Kumar (Roll: MBD-2026-042)</div>
+                </div>
+                <a href="index.html" class="btn btn-green" style="padding: 6px 12px; font-size:0.75rem;">Logout</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Portal Body -->
+    <div class="portal-wrapper">
+        
+        <!-- Sidebar Navigation -->
+        <aside class="portal-sidebar">
+            <div class="portal-sidebar-title">
+                <h3>Guardian Menu</h3>
+                <p>MBD Parent Panel</p>
+            </div>
+            <ul class="portal-menu">
+                <li class="active"><a href="#" data-tab="tab-child-profile">
+                    <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    Child's Profile
+                </a></li>
+                <li><a href="#" data-tab="tab-child-attendance">
+                    <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    Child's Attendance
+                </a></li>
+                <li><a href="#" data-tab="tab-child-results">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+                    Academic Results
+                </a></li>
+                <li><a href="#" data-tab="tab-child-fees">
+                    <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="12" y1="10" x2="12" y2="14"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+                    Outstanding Fees
+                </a></li>
+                <li><a href="#" data-tab="tab-parent-notices">
+                    <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                    Teacher Notifications
+                </a></li>
+                <li><a href="#" data-tab="tab-parent-complaint">
+                    <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                    File Complaint/Feedback
+                </a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Dashboard View -->
+        <main class="portal-main">
+
+            <!-- Child Profile Content -->
+            <div class="portal-tab-content active" id="tab-child-profile">
+                <div class="portal-tab-header">
+                    <h2>Child's Academic Profile</h2>
+                </div>
+                <div class="portal-table-container">
+                    <table class="portal-table">
+                        <tr>
+                            <th style="width: 30%;">Category</th>
+                            <th>Student Information Value</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Student Full Name</strong></td>
+                            <td>Rahul Kumar</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Roll Number / ID</strong></td>
+                            <td>MBD-2026-042</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Father Name</strong></td>
+                            <td>Ramesh Kumar</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Guardian Registered Mobile</strong></td>
+                            <td>+91 99999 99999 [Placeholder]</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Current Session</strong></td>
+                            <td>2026 - 2027 [First Year Batch]</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Stream</strong></td>
+                            <td>[Editable program details stream]</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Attendance Content -->
+            <div class="portal-tab-content" id="tab-child-attendance">
+                <div class="portal-tab-header">
+                    <h2>Child's Attendance Records</h2>
+                    <span class="badge badge-success" style="font-size: 0.9rem; padding: 4px 10px;">Overall ratio: 84.5%</span>
+                </div>
+                <div class="portal-table-container">
+                    <table class="portal-table">
+                        <thead>
+                            <tr>
+                                <th>Subject Code</th>
+                                <th>Subject Title</th>
+                                <th>Required classes</th>
+                                <th>Attended classes</th>
+                                <th>Attained Percentage</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>AC-101</td>
+                                <td>[Subject Room A - Placeholder]</td>
+                                <td>30</td>
+                                <td>26</td>
+                                <td>86.6%</td>
+                            </tr>
+                            <tr>
+                                <td>AC-102</td>
+                                <td>[Subject Room B - Placeholder]</td>
+                                <td>28</td>
+                                <td>23</td>
+                                <td>82.1%</td>
+                            </tr>
+                            <tr>
+                                <td>AC-103</td>
+                                <td>[Subject Lab C - Placeholder]</td>
+                                <td>15</td>
+                                <td>13</td>
+                                <td>86.6%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Results Content -->
+            <div class="portal-tab-content" id="tab-child-results">
+                <div class="portal-tab-header">
+                    <h2>Child's Examination Results</h2>
+                </div>
+                <p style="margin-bottom: 12px; font-size: 0.85rem; color: var(--text-muted);">
+                    Grades verified and signed off by Principal Dr. S.P. Verma's office for the mid-term evaluations:
+                </p>
+                <div class="portal-table-container">
+                    <table class="portal-table">
+                        <thead>
+                            <tr>
+                                <th>Subject Code</th>
+                                <th>Subject Title</th>
+                                <th>Maximum Marks</th>
+                                <th>Marks Obtained</th>
+                                <th>Assigned Grade</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>AC-101</td>
+                                <td>[Subject Room A - Placeholder]</td>
+                                <td>100</td>
+                                <td>82</td>
+                                <td>A Grade</td>
+                            </tr>
+                            <tr>
+                                <td>AC-102</td>
+                                <td>[Subject Room B - Placeholder]</td>
+                                <td>100</td>
+                                <td>75</td>
+                                <td>B+ Grade</td>
+                            </tr>
+                            <tr>
+                                <td>AC-103</td>
+                                <td>[Subject Lab C - Placeholder]</td>
+                                <td>50</td>
+                                <td>43</td>
+                                <td>O Grade (Outstanding)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Fees Content -->
+            <div class="portal-tab-content" id="tab-child-fees">
+                <div class="portal-tab-header">
+                    <h2>Fee Ledgers & Outstanding balances</h2>
+                </div>
+                <div class="portal-table-container">
+                    <table class="portal-table">
+                        <thead>
+                            <tr>
+                                <th>Billing Component</th>
+                                <th>Total Due (INR)</th>
+                                <th>Paid To Date (INR)</th>
+                                <th>Remaining Balance (INR)</th>
+                                <th>Action Link</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Yearly Tuition Fees [Academic]</td>
+                                <td>[Placeholder Amount]</td>
+                                <td>[Placeholder Amount]</td>
+                                <td>0.00</td>
+                                <td><span class="badge badge-success">Fully Paid</span></td>
+                            </tr>
+                            <tr>
+                                <td>Laboratory &amp; Library Fees</td>
+                                <td>[Placeholder Amount]</td>
+                                <td>0.00</td>
+                                <td>[Placeholder Amount]</td>
+                                <td><button class="btn btn-green" onclick="alert('Online Payment simulation: Redirecting to mock gateway...');" style="padding: 3px 6px; font-size: 0.75rem;">Pay Online</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Notifications Content -->
+            <div class="portal-tab-content" id="tab-parent-notices">
+                <div class="portal-tab-header">
+                    <h2>Teacher Notifications</h2>
+                </div>
+                <div class="notice-card" style="border-left-color: var(--accent-orange);">
+                    <div class="notice-meta">From: Class Coordinator | Aug 14, 2026</div>
+                    <h3 class="notice-title">Monthly Progress Discussion</h3>
+                    <p class="notice-desc">Please visit the campus between 10:00 AM and 1:00 PM next Saturday to discuss your child's weekly report card progress with subject educators.</p>
+                </div>
+                <div class="notice-card" style="border-left-color: var(--primary-green);">
+                    <div class="notice-meta">From: Office Account Section | Aug 08, 2026</div>
+                    <h3 class="notice-title">Pending Library Bill Notice</h3>
+                    <p class="notice-desc">Reminder for payment of laboratory and library session fees before mid-semester assessments start.</p>
+                </div>
+            </div>
+
+            <!-- Complaint Form Content -->
+            <div class="portal-tab-content" id="tab-parent-complaint">
+                <div class="portal-tab-header">
+                    <h2>File Complaint / Feedback to Management</h2>
+                </div>
+                <p style="margin-bottom:15px; font-size:0.85rem; color:var(--text-muted);">
+                    Directly address query complaints or constructive feedback messages to Principal Dr. S.P. Verma or Manager Bhura.
+                </p>
+                <form onsubmit="alert('Your complaint has been submitted securely. The Principal\'s desk will review this in 2-3 working days.'); this.reset(); return false;" style="display: flex; flex-direction: column; gap: 15px;">
+                    <div class="form-group">
+                        <label for="complaint-dest">Direct Address To</label>
+                        <select id="complaint-dest" class="form-control" required>
+                            <option value="">Select Recipient...</option>
+                            <option value="principal">Principal (Dr. S.P. Verma)</option>
+                            <option value="manager">Manager (Bhura)</option>
+                            <option value="accounts">Accounts & Billing Desk</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="complaint-subj">Subject</label>
+                        <input type="text" id="complaint-subj" class="form-control" placeholder="Enter subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="complaint-desc">Details of Complaint / Query</label>
+                        <textarea id="complaint-desc" class="form-control" rows="5" placeholder="Write details here..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-green" style="align-self: flex-start; padding: 8px 18px;">Submit Message</button>
+                </form>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer style="padding: 15px 20px; border-top: none; background-color: #1e293b;">
+        <div class="footer-bottom" style="margin-top: 0; padding-top: 0; border-top: none;">
+            <p>&copy; 2026 MBD College Doora. All Rights Reserved. | Made by Mayank Chahar</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

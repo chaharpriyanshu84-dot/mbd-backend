@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parent Login - MBD College Doora</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body style="background-color: var(--bg-light);">
+
+    <header>
+        <div class="header-container" style="justify-content: center;">
+            <div class="logo-section">
+                <div class="logo-placeholder">MBD</div>
+                <div class="title-section">
+                    <h1>MBD COLLEGE DOORA</h1>
+                    <p style="text-align: center;">Excellence in Education, Character & Career</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="login-wrapper">
+        <div class="login-card">
+            <div class="login-header">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--primary-green)" stroke-width="2" style="width: 48px; height: 48px; margin: 0 auto 10px auto; display: block;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                <h2>Parent Login Portal</h2>
+                <p>Access your child's educational records and profile</p>
+            </div>
+
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="child-reg">Child's Roll Number</label>
+                    <input type="text" id="child-reg" class="form-control" placeholder="e.g., MBD-2026-042" required value="MBD-2026-042">
+                </div>
+                <div class="form-group">
+                    <label for="parent-phone">Registered Mobile Number</label>
+                    <input type="tel" id="parent-phone" class="form-control" placeholder="10-digit number" required value="9999999999">
+                </div>
+                <button type="submit" class="btn btn-green" style="width: 100%; padding: 10px; margin-top: 10px;">Verify & Access Portal</button>
+            </form>
+
+            <div class="login-footer">
+                <p>Not a guardian? <a href="index.html">Return to main page</a></p>
+            </div>
+        </div>
+    </div>
+
+    <footer style="padding: 15px 20px; border-top: none; background-color: #1e293b;">
+        <div class="footer-bottom" style="margin-top: 0; padding-top: 0; border-top: none;">
+            <p>&copy; 2026 MBD College Doora. All Rights Reserved. | Made by Mayank Chahar</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            window.location.href = 'parent-portal.html';
+        });
+    </script>
+</body>
+</html>

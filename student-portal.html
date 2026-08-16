@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portal - MBD College Doora</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body style="background-color: var(--bg-light);">
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo-section">
+                <div class="logo-placeholder">MBD</div>
+                <div class="title-section">
+                    <h1>MBD COLLEGE DOORA</h1>
+                    <p>Student Academic Portal Preview</p>
+                </div>
+            </div>
+            <div style="font-size:0.85rem; display:flex; align-items:center; gap:12px;">
+                <div style="text-align: right;">
+                    <div id="header-student-name" style="font-weight: 700; color: var(--primary-green-hover);">Rahul Kumar</div>
+                    <div id="header-student-roll" style="font-size: 0.75rem; color: var(--text-muted);">Roll: MBD-2026-042</div>
+                </div>
+                <a href="#" id="logout-btn" class="btn btn-green" style="padding: 6px 12px; font-size:0.75rem;">Logout</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Portal Body -->
+    <div class="portal-wrapper">
+        
+        <!-- Sidebar Navigation -->
+        <aside class="portal-sidebar">
+            <div class="portal-sidebar-title">
+                <h3>Navigation Menu</h3>
+                <p>MBD Student Panel</p>
+            </div>
+            <ul class="portal-menu">
+                <li class="active"><a href="#" data-tab="tab-profile">
+                    <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    My Profile
+                </a></li>
+                <li><a href="#" data-tab="tab-attendance">
+                    <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    Attendance Records
+                </a></li>
+                <li><a href="#" data-tab="tab-homework">
+                    <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                    Homework assignments
+                </a></li>
+                <li><a href="#" data-tab="tab-exams">
+                    <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="m9 16 2 2 4-4"/></svg>
+                    Exam Schedule
+                </a></li>
+                <li><a href="#" data-tab="tab-results">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+                    Marks &amp; Results
+                </a></li>
+                <li><a href="#" data-tab="tab-fees">
+                    <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="12" y1="10" x2="12" y2="14"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+                    Fee Information
+                </a></li>
+                <li><a href="#" data-tab="tab-materials">
+                    <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+                    Study Materials
+                </a></li>
+                <li><a href="#" data-tab="tab-feedback">
+                    <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                    Feedback / Complaints
+                </a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Dashboard View -->
+        <main class="portal-main">
+
+            <!-- Profile Content -->
+            <div class="portal-tab-content active" id="tab-profile">
+                <div class="portal-tab-header">
+                    <h2>Student Academic Profile</h2>
+                </div>
+                <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center; margin-bottom: 20px;">
+                    <div id="profile-avatar-initials" style="width: 80px; height: 80px; background-color: #e9ecef; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 1.5rem; font-weight: bold; border: 2px solid var(--primary-green);">
+                        RK
+                    </div>
+                    <div>
+                        <h3 id="profile-student-name" style="color: var(--primary-green); font-size: 1.25rem;">Rahul Kumar</h3>
+                        <p style="color: var(--text-muted); font-size: 0.85rem;">Enrolled Academic Year: 2026-2027</p>
+                    </div>
+                </div>
+                <div class="portal-table-container">
+                    <table class="portal-table">
+                        <tr>
+                            <th style="width: 30%;">Field</th>
+                            <th>Detail Value</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Roll / registration Number</strong></td>
+                            <td id="profile-student-roll">MBD-2026-042</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Email Address</strong></td>
+                            <td id="profile-student-email">rahul@example.com</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Academic Stream</strong></td>
+                            <td id="profile-student-course">[Editable program details stream]</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Batch Year</strong></td>
+                            <td>First Year batch [Editable]</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Registered Address</strong></td>
+                            <td>Doora, UP</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Attendance Content -->
+            <div class="portal-tab-content" id="tab-attendance">
+                <div class="portal-tab-header">
+                    <h2>Attendance Records</h2>
+                    <span class="badge badge-success" style="font-size: 0.9rem; padding: 4px 10px;">Overall: 84.5%</span>
+                </div>
+                <p style="margin-bottom: 15px; font-size: 0.85rem;">Monthly breakout of classroom and laboratory session attendances:</p>
+                <div class="portal-table-container">
+                    <table class="portal-table">
+                        <thead>
+                            <tr>
+                                <th>Subject Code</th>
+                                <th>Subject Name</th>
+                                <th>Sessions Scheduled</th>
+                                <th>Sessions Attended</th>
+                                <th>Ratio Percentage</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>AC-101</td>
+                                <td>[Subject Room A - Placeholder]</td>
+                                <td>30</td>
+                                <td>26</td>
+                                <td>86.6%</td>
+                            </tr>
+                            <tr>
+                                <td>AC-102</td>
+                                <td>[Subject Room B - Placeholder]</td>
+                                <td>28</td>
+                                <td>23</td>
+                                <td>82.1%</td>
+                            </tr>
+                            <tr>
+                                <td>AC-103</td>
+                                <td>[Subject Lab C - Placeholder]</td>
+                                <td>15</td>
+                                <td>13</td>
+                                <td>86.6%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Homework Content -->
+            <div class="portal-tab-content" id="tab-homework">
+                <div class="portal-tab-header">
+                    <h2>Homework assignments</h2>
+                </div>
+                <div class="notice-card" style="border-left-color: var(--accent-orange);">
+                    <div class="notice-meta">Due Date: Saturday evening</div>
+                    <h3 class="notice-title">[Subject Room B] Weekly Lab Report 3 Submission</h3>
+                    <p class="notice-desc" style="margin-bottom: 6px;">Submit detailed descriptions of class experiments conducted in lab sessions.</p>
+                    <span class="badge badge-danger">Pending Submission</span>
+                </div>
+                <div class="notice-card" style="border-left-color: var(--primary-green);">
+                    <div class="notice-meta">Submitted On: Aug 12, 2026</div>
+                    <h3 class="notice-title">[Subject Room A] Mathematical Problem Set 2</h3>
+                    <p class="notice-desc" style="margin-bottom: 6px;">Problems 1 to 15 solved and uploaded.</p>
+                    <span class="badge badge-success">Completed &amp; Evaluated</span>
+                </div>
+            </div>
+
+            <!-- Exam Schedule Content -->
+            <div class="portal-tab-content" id="tab-exams">
+                <div class="portal-tab-header">
+                    <h2>Exam Schedule</h2>
+                </div>
+                <div class="portal-table-container">
+                    <table class="portal-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Session Timing</th>
+                                <th>Subject Paper</th>
+                                <th>Lab Room No.</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Sept 15, 2026</td>
+                                <td>10:00 AM - 1:00 PM</td>
+                                <td>[Subject Room A Paper]</td>
+                                <td>Room Hall 2</td>
+                            </tr>
+                            <tr>
+                                <td>Sept 17, 2026</td>
+                                <td>10:00 AM - 1:00 PM</td>
+                                <td>[Subject Room B Paper]</td>
+                                <td>Room Hall 2</td>
+                            </tr>
+                            <tr>
+                                <td>Sept 19, 2026</td>
+                                <td>02:00 PM - 05:00 PM</td>
+                                <td>[Subject Lab C Practical]</td>
+                                <td>Chemistry Lab Section</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Results Content -->
+            <div class="portal-tab-content" id="tab-results">
+                <div class="portal-tab-header">
+                    <h2>Marks &amp; Examination Results</h2>
+                </div>
+                <div class="portal-table-container">
+                    <table class="portal-table">
+                        <thead>
+                            <tr>
+                                <th>Subject Code</th>
+                                <th>Subject Description</th>
+                                <th>Maximum Marks</th>
+                                <th>Marks Obtained</th>
+                                <th>Grade / Remarks</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>AC-101</td>
+                                <td>[Subject Room A - Placeholder]</td>
+                                <td>100</td>
+                                <td>82</td>
+                                <td>A Grade</td>
+                            </tr>
+                            <tr>
+                                <td>AC-102</td>
+                                <td>[Subject Room B - Placeholder]</td>
+                                <td>100</td>
+                                <td>75</td>
+                                <td>B+ Grade</td>
+                            </tr>
+                            <tr>
+                                <td>AC-103</td>
+                                <td>[Subject Lab C - Placeholder]</td>
+                                <td>50</td>
+                                <td>43</td>
+                                <td>O Grade (Outstanding)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Fees Content -->
+            <div class="portal-tab-content" id="tab-fees">
+                <div class="portal-tab-header">
+                    <h2>Fee Ledger Information</h2>
+                </div>
+                <div class="portal-table-container">
+                    <table class="portal-table">
+                        <thead>
+                            <tr>
+                                <th>Fee Component description</th>
+                                <th>Total Fee (INR)</th>
+                                <th>Paid Amount (INR)</th>
+                                <th>Remaining Balance (INR)</th>
+                                <th>Recent Receipt Code</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Yearly Tuition Fees [Academic]</td>
+                                <td>[Placeholder Amount]</td>
+                                <td>[Placeholder Amount]</td>
+                                <td>0.00</td>
+                                <td>REC-MBD-4091</td>
+                            </tr>
+                            <tr>
+                                <td>Laboratory &amp; Library Fees</td>
+                                <td>[Placeholder Amount]</td>
+                                <td>0.00</td>
+                                <td>[Placeholder Amount]</td>
+                                <td>-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Study Materials Content -->
+            <div class="portal-tab-content" id="tab-materials">
+                <div class="portal-tab-header">
+                    <h2>Download Study Materials</h2>
+                </div>
+                <ul class="sidebar-list" style="margin-top:10px;">
+                    <li class="sidebar-item" style="display:flex; justify-content:space-between; align-items:center;">
+                        <div>
+                            <div style="font-weight:600;">[Subject Room A] Unit 1 Introduction Slides</div>
+                            <div style="font-size:0.75rem; color:var(--text-muted);">Format: PDF | Size: 4.2 MB</div>
+                        </div>
+                        <button onclick="alert('Starting mock file download... (Preview)');" class="btn btn-green" style="padding: 4px 8px; font-size:0.75rem;">Download File</button>
+                    </li>
+                    <li class="sidebar-item" style="display:flex; justify-content:space-between; align-items:center;">
+                        <div>
+                            <div style="font-weight:600;">[Subject Room B] Experimental Lab Manual</div>
+                            <div style="font-size:0.75rem; color:var(--text-muted);">Format: DOCX | Size: 1.8 MB</div>
+                        </div>
+                        <button onclick="alert('Starting mock file download... (Preview)');" class="btn btn-green" style="padding: 4px 8px; font-size:0.75rem;">Download File</button>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Feedback Content -->
+            <div class="portal-tab-content" id="tab-feedback">
+                <div class="portal-tab-header">
+                    <h2>Feedback &amp; Grievance Submission</h2>
+                </div>
+                <form onsubmit="alert('Thank you. Your feedback has been registered and passed to Principal Dr. S.P. Verma\'s desk.'); this.reset(); return false;" style="display: flex; flex-direction: column; gap: 15px; margin-top: 10px;">
+                    <div class="form-group">
+                        <label for="feedback-category">Grievance Category</label>
+                        <select id="feedback-category" class="form-control" required>
+                            <option value="">Select Category...</option>
+                            <option value="academic">Academic / Teacher feedback</option>
+                            <option value="facility">Infrastructure &amp; Facility complaint</option>
+                            <option value="fees">Billing &amp; Fees enquiry</option>
+                            <option value="other">General / Other concerns</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="feedback-subject">Brief Subject</label>
+                        <input type="text" id="feedback-subject" class="form-control" placeholder="Enter subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="feedback-details">Elaborated details</label>
+                        <textarea id="feedback-details" class="form-control" rows="4" placeholder="Describe your concern here..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-green" style="align-self:flex-start; padding:8px 18px;">Submit Feedback</button>
+                </form>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer style="padding: 15px 20px; border-top: none; background-color: #1e293b;">
+        <div class="footer-bottom" style="margin-top: 0; padding-top: 0; border-top: none;">
+            <p>&copy; 2026 MBD College Doora. All Rights Reserved. | Made by Mayank Chahar</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Deep-linking tab handler based on URL parameters (?tab=attendance)
+        window.addEventListener('DOMContentLoaded', function() {
+            // Check session
+            const userStr = localStorage.getItem('studentUser');
+            if (!userStr) {
+                window.location.href = 'student-login.html';
+                return;
+            }
+
+            const user = JSON.parse(userStr);
+            
+            // Populate headers and profile details
+            document.getElementById('header-student-name').textContent = user.name;
+            document.getElementById('header-student-roll').textContent = 'Roll: ' + user.regNo;
+            document.getElementById('profile-student-name').textContent = user.name;
+            document.getElementById('profile-student-roll').textContent = user.regNo;
+            document.getElementById('profile-student-email').textContent = user.email;
+            document.getElementById('profile-student-course').textContent = user.course || 'N/A';
+
+            // Set Avatar Initials
+            const initials = user.name.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase();
+            document.getElementById('profile-avatar-initials').textContent = initials;
+
+            // Handle deep-linking tab
+            const urlParams = new URLSearchParams(window.location.search);
+            const tabParam = urlParams.get('tab');
+            if (tabParam) {
+                const targetBtn = document.querySelector(`.portal-menu a[data-tab="tab-${tabParam}"]`);
+                if (targetBtn) {
+                    targetBtn.click();
+                }
+            }
+        });
+
+        // Logout action
+        document.getElementById('logout-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            localStorage.removeItem('studentUser');
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html>

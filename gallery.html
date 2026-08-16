@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery - MBD College Doora</title>
+    <meta name="description" content="View snapshots of MBD College Doora campus facilities, classes, and cultural functions in our responsive photo gallery.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+    <!-- Top Info Bar -->
+    <div class="top-bar">
+        <div class="top-bar-left">
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
+                Location: Doora
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                contact@mbdcollegedoora.org (Placeholder)
+            </span>
+        </div>
+        <div class="top-bar-right">
+            <span>Manager: Bhura</span>
+            <span>Principal: Dr. S.P. Verma</span>
+        </div>
+    </div>
+
+    <!-- Header Section -->
+    <header>
+        <div class="header-container">
+            <div class="logo-section">
+                <div class="logo-placeholder">MBD</div>
+                <div class="title-section">
+                    <h1>MBD COLLEGE DOORA</h1>
+                    <p>Affiliated & Managed Educational Institution</p>
+                </div>
+            </div>
+            <div class="logo-section" style="font-size: 0.85rem; text-align: right; gap: 8px;">
+                <div style="color: var(--primary-green); font-weight: 600;">Office Admission Helpline:</div>
+                <div style="font-weight: 700; color: var(--accent-orange);">+91 99999 99999 (Placeholder)</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Navigation Bar -->
+    <nav>
+        <div class="nav-container">
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+            </button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="management.html">Management</a></li>
+                <li><a href="academics.html">Academics</a></li>
+                <li><a href="facilities.html">Facilities</a></li>
+                <li><a href="admission.html">Admissions</a></li>
+                <li><a href="notices.html">Notice Board</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li class="active"><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Content Wrapper -->
+    <div class="main-wrapper">
+        <h2 class="section-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            Campus Gallery
+        </h2>
+
+        <p style="margin-bottom: 20px; font-size: 0.9rem; color: var(--text-muted);">
+            Click on any image to open the full-screen interactive lightbox viewer.
+        </p>
+
+        <!-- Gallery Grid -->
+        <div class="gallery-grid">
+            
+            <!-- Real School Building Photo -->
+            <div class="gallery-item">
+                <img src="assets/images/school-building.jpg" alt="MBD College Doora Building Campus View">
+                <div class="gallery-overlay">MBD College Campus Building & Green Lawns</div>
+            </div>
+
+            <!-- Placeholder 2 -->
+            <div class="gallery-item">
+                <div style="width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; background-color:#e2e8f0; color:#475569;">
+                    <svg viewBox="0 0 24 24" style="width:32px; height:32px; fill:none; stroke:currentColor; stroke-width:1.5; margin-bottom:4px;"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+                    <span style="font-size:0.75rem; font-weight:600;">Library & Reading Hall</span>
+                </div>
+                <!-- Hidden img for JavaScript to capture when clicked -->
+                <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='600' viewBox='0 0 800 600'><rect width='100%' height='100%' fill='%23e2e8f0'/><text x='50%' y='50%' font-family='Arial' font-size='24' fill='%23475569' text-anchor='middle'>Library &amp; Reading Room Placeholder</text></svg>" style="display:none;" alt="Library Space">
+                <div class="gallery-overlay">Spacious Reference Library &amp; Quiet Reading Rooms</div>
+            </div>
+
+            <!-- Placeholder 3 -->
+            <div class="gallery-item">
+                <div style="width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; background-color:#e2e8f0; color:#475569;">
+                    <svg viewBox="0 0 24 24" style="width:32px; height:32px; fill:none; stroke:currentColor; stroke-width:1.5; margin-bottom:4px;"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+                    <span style="font-size:0.75rem; font-weight:600;">Science Laboratory</span>
+                </div>
+                <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='600' viewBox='0 0 800 600'><rect width='100%' height='100%' fill='%23e2e8f0'/><text x='50%' y='50%' font-family='Arial' font-size='24' fill='%23475569' text-anchor='middle'>Science Lab Equipment Placeholder</text></svg>" style="display:none;" alt="Science Lab">
+                <div class="gallery-overlay">Practical Science Lab Setup with Experimental Apparatus</div>
+            </div>
+
+            <!-- Placeholder 4 -->
+            <div class="gallery-item">
+                <div style="width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; background-color:#e2e8f0; color:#475569;">
+                    <svg viewBox="0 0 24 24" style="width:32px; height:32px; fill:none; stroke:currentColor; stroke-width:1.5; margin-bottom:4px;"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+                    <span style="font-size:0.75rem; font-weight:600;">Computer Laboratory</span>
+                </div>
+                <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='600' viewBox='0 0 800 600'><rect width='100%' height='100%' fill='%23e2e8f0'/><text x='50%' y='50%' font-family='Arial' font-size='24' fill='%23475569' text-anchor='middle'>Computer Lab Terminal Placeholder</text></svg>" style="display:none;" alt="Computer Lab">
+                <div class="gallery-overlay">Computer Lab Terminal Layout for IT Classrooms</div>
+            </div>
+
+            <!-- Placeholder 5 -->
+            <div class="gallery-item">
+                <div style="width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; background-color:#e2e8f0; color:#475569;">
+                    <svg viewBox="0 0 24 24" style="width:32px; height:32px; fill:none; stroke:currentColor; stroke-width:1.5; margin-bottom:4px;"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+                    <span style="font-size:0.75rem; font-weight:600;">Sports Ground & Playground</span>
+                </div>
+                <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='600' viewBox='0 0 800 600'><rect width='100%' height='100%' fill='%23e2e8f0'/><text x='50%' y='50%' font-family='Arial' font-size='24' fill='%23475569' text-anchor='middle'>Playground Court Placeholder</text></svg>" style="display:none;" alt="Sports Ground">
+                <div class="gallery-overlay">Outdoor Playground and Sports Courts</div>
+            </div>
+
+            <!-- Placeholder 6 -->
+            <div class="gallery-item">
+                <div style="width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; background-color:#e2e8f0; color:#475569;">
+                    <svg viewBox="0 0 24 24" style="width:32px; height:32px; fill:none; stroke:currentColor; stroke-width:1.5; margin-bottom:4px;"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+                    <span style="font-size:0.75rem; font-weight:600;">Seminars & Cultural Hall</span>
+                </div>
+                <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='600' viewBox='0 0 800 600'><rect width='100%' height='100%' fill='%23e2e8f0'/><text x='50%' y='50%' font-family='Arial' font-size='24' fill='%23475569' text-anchor='middle'>Seminar Hall Assembly Placeholder</text></svg>" style="display:none;" alt="Seminar Hall">
+                <div class="gallery-overlay">Seminar Hall for Guest Lectures and Assemblies</div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Gallery Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" aria-label="Close lightbox">&times;</button>
+        <img class="lightbox-content" id="lightbox-img" src="" alt="Zoomed view">
+        <div class="lightbox-caption" id="lightbox-caption">Zoomed view</div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>MBD College Doora</h3>
+                <p>Dedicated to delivering quality learning, leadership skills, and ethical behavior to empower our student community in Doora.</p>
+                <p style="font-size: 0.8rem; font-weight: bold; color: var(--accent-orange);">
+                    Manager: Bhura <br>
+                    Principal: Dr. S.P. Verma
+                </p>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Navigation</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="management.html">Management Profiles</a></li>
+                    <li><a href="academics.html">Academics</a></li>
+                    <li><a href="facilities.html">Campus Facilities</a></li>
+                    <li><a href="admission.html">Admissions Enquiry</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Contact Info</h3>
+                <p>MBD College Doora,<br>Village: Doora, District Agra, UP (Placeholder)</p>
+                <p>Phone: +91 99999 99999 (Office)<br>Email: info@mbdcollegedoora.org</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 MBD College Doora. All Rights Reserved. | Made by Mayank Chahar</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

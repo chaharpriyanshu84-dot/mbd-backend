@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - MBD College Doora</title>
+    <meta name="description" content="Get in touch with MBD College Doora. Submit queries to administrative staff, find our address in Doora, and access manager/principal desk info.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+    <!-- Top Info Bar -->
+    <div class="top-bar">
+        <div class="top-bar-left">
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
+                Location: Doora
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                contact@mbdcollegedoora.org (Placeholder)
+            </span>
+        </div>
+        <div class="top-bar-right">
+            <span>Manager: Bhura</span>
+            <span>Principal: Dr. S.P. Verma</span>
+        </div>
+    </div>
+
+    <!-- Header Section -->
+    <header>
+        <div class="header-container">
+            <div class="logo-section">
+                <div class="logo-placeholder">MBD</div>
+                <div class="title-section">
+                    <h1>MBD COLLEGE DOORA</h1>
+                    <p>Affiliated & Managed Educational Institution</p>
+                </div>
+            </div>
+            <div class="logo-section" style="font-size: 0.85rem; text-align: right; gap: 8px;">
+                <div style="color: var(--primary-green); font-weight: 600;">Office Admission Helpline:</div>
+                <div style="font-weight: 700; color: var(--accent-orange);">+91 99999 99999 (Placeholder)</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Navigation Bar -->
+    <nav>
+        <div class="nav-container">
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+            </button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="management.html">Management</a></li>
+                <li><a href="academics.html">Academics</a></li>
+                <li><a href="facilities.html">Facilities</a></li>
+                <li><a href="admission.html">Admissions</a></li>
+                <li><a href="notices.html">Notice Board</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li class="active"><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Content Wrapper -->
+    <div class="main-wrapper">
+        <div class="page-grid">
+            
+            <!-- Left/Main Column: Form -->
+            <div class="content-card">
+                <h2 class="section-title" style="border:none; margin:0; padding:0; font-size:1.3rem; margin-bottom: 12px;">
+                    Send Us a Message
+                </h2>
+                <form onsubmit="alert('Message submitted successfully. Our help desk will respond shortly.'); this.reset(); return false;" style="display: flex; flex-direction: column; gap: 15px;">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="contact-name">Your Full Name</label>
+                            <input type="text" id="contact-name" class="form-control" placeholder="Enter name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-email">Email Address</label>
+                            <input type="email" id="contact-email" class="form-control" placeholder="Enter email" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="contact-subject">Subject</label>
+                            <input type="text" id="contact-subject" class="form-control" placeholder="Subject description" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-mob">Mobile Number (Optional)</label>
+                            <input type="tel" id="contact-mob" class="form-control" placeholder="10-digit number">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-msg">Your Message</label>
+                        <textarea id="contact-msg" class="form-control" rows="5" placeholder="Write details..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-green" style="align-self: flex-start; padding: 10px 24px;">Send Message</button>
+                </form>
+            </div>
+
+            <!-- Right Column: Institutional Details -->
+            <div>
+                <div class="sidebar-section">
+                    <div class="sidebar-title">Contact Directory</div>
+                    <ul class="sidebar-list">
+                        <li class="sidebar-item" style="padding-top: 0;">
+                            <div style="font-weight: 700; color: var(--primary-green);">MBD COLLEGE DOORA</div>
+                            <div style="font-size: 0.85rem; color: var(--text-muted); margin-top:2px;">
+                                Address Location: Doora, District Agra, UP<br>
+                                [Zip/Postal details are open for future edits]
+                            </div>
+                        </li>
+                        <li class="sidebar-item">
+                            <div style="font-weight: 600; color: var(--text-dark);">Office Administration</div>
+                            <div style="font-size: 0.85rem; color: var(--text-muted);">
+                                Phone: +91 99999 99999 [Placeholder]<br>
+                                Email: info@mbdcollegedoora.org [Placeholder]
+                            </div>
+                        </li>
+                        <li class="sidebar-item">
+                            <div style="font-weight: 600; color: var(--text-dark);">Manager Office Desk</div>
+                            <div style="font-size: 0.85rem; color: var(--text-muted);">
+                                Manager: Bhura<br>
+                                Phone: [Placeholder line]<br>
+                                Email: manager@mbdcollegedoora.org [Placeholder]
+                            </div>
+                        </li>
+                        <li class="sidebar-item" style="border:none; padding-bottom: 0;">
+                            <div style="font-weight: 600; color: var(--text-dark);">Principal Office Desk</div>
+                            <div style="font-size: 0.85rem; color: var(--text-muted);">
+                                Principal: Dr. S.P. Verma<br>
+                                Phone: [Placeholder line]<br>
+                                Email: principal@mbdcollegedoora.org [Placeholder]
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-section">
+                    <div class="sidebar-title">Visiting Guidelines</div>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.4;">
+                        Visiting hours for candidate consultations are restricted between 10:00 AM and 1:00 PM during working weekdays. Visitors must register at the reception gate.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>MBD College Doora</h3>
+                <p>Dedicated to delivering quality learning, leadership skills, and ethical behavior to empower our student community in Doora.</p>
+                <p style="font-size: 0.8rem; font-weight: bold; color: var(--accent-orange);">
+                    Manager: Bhura <br>
+                    Principal: Dr. S.P. Verma
+                </p>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Navigation</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="management.html">Management Profiles</a></li>
+                    <li><a href="academics.html">Academics</a></li>
+                    <li><a href="facilities.html">Campus Facilities</a></li>
+                    <li><a href="admission.html">Admissions Enquiry</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Contact Info</h3>
+                <p>MBD College Doora,<br>Village: Doora, District Agra, UP (Placeholder)</p>
+                <p>Phone: +91 99999 99999 (Office)<br>Email: info@mbdcollegedoora.org</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 MBD College Doora. All Rights Reserved. | Made by Mayank Chahar</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

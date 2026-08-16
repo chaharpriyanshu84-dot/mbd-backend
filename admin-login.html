@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - MBD College Doora</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body style="background-color: var(--bg-light);">
+
+    <header>
+        <div class="header-container" style="justify-content: center;">
+            <div class="logo-section">
+                <div class="logo-placeholder">MBD</div>
+                <div class="title-section">
+                    <h1>MBD COLLEGE DOORA</h1>
+                    <p style="text-align: center;">Excellence in Education, Character & Career</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="login-wrapper">
+        <div class="login-card">
+            <div class="login-header">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--primary-green)" stroke-width="2" style="width: 48px; height: 48px; margin: 0 auto 10px auto; display: block;"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <h2>Admin & Principal Desk</h2>
+                <p>Authorized access only</p>
+            </div>
+
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="admin-user">Username</label>
+                    <input type="text" id="admin-user" class="form-control" placeholder="Admin username" required value="admin_mbd">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" class="form-control" placeholder="••••••••" required value="adminpass">
+                </div>
+                <button type="submit" class="btn btn-green" style="width: 100%; padding: 10px; margin-top:10px;">Access Admin Dashboard</button>
+            </form>
+
+            <div class="login-footer">
+                <p>Return to <a href="index.html">main page</a></p>
+            </div>
+        </div>
+    </div>
+
+    <footer style="padding: 15px 20px; border-top: none; background-color: #1e293b;">
+        <div class="footer-bottom" style="margin-top: 0; padding-top: 0; border-top: none;">
+            <p>&copy; 2026 MBD College Doora. All Rights Reserved. | Made by Mayank Chahar</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            window.location.href = 'admin-portal.html';
+        });
+    </script>
+</body>
+</html>

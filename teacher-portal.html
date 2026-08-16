@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Portal - MBD College Doora</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body style="background-color: var(--bg-light);">
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo-section">
+                <div class="logo-placeholder">MBD</div>
+                <div class="title-section">
+                    <h1>MBD COLLEGE DOORA</h1>
+                    <p>Teacher & Academic Staff Portal Preview</p>
+                </div>
+            </div>
+            <div style="font-size:0.85rem; display:flex; align-items:center; gap:12px;">
+                <div style="text-align: right;">
+                    <div id="header-teacher-name" style="font-weight: 700; color: var(--primary-green-hover);">Prof. S. Kumar</div>
+                    <div id="header-teacher-dept" style="font-size: 0.75rem; color: var(--text-muted);">Dept: Science Faculty</div>
+                </div>
+                <a href="#" id="logout-btn" class="btn btn-green" style="padding: 6px 12px; font-size:0.75rem;">Logout</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Portal Body -->
+    <div class="portal-wrapper">
+        
+        <!-- Sidebar Navigation -->
+        <aside class="portal-sidebar">
+            <div class="portal-sidebar-title">
+                <h3>Teacher Actions</h3>
+                <p>MBD Staff Panel</p>
+            </div>
+            <ul class="portal-menu">
+                <li class="active"><a href="#" data-tab="tab-teach-attendance">
+                    <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    Mark Attendance
+                </a></li>
+                <li><a href="#" data-tab="tab-teach-homework">
+                    <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                    Assign Homework
+                </a></li>
+                <li><a href="#" data-tab="tab-teach-marks">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+                    Record Marks
+                </a></li>
+                <li><a href="#" data-tab="tab-teach-notices">
+                    <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                    Post Notice
+                </a></li>
+                <li><a href="#" data-tab="tab-teach-students">
+                    <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    Student Directory
+                </a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Dashboard View -->
+        <main class="portal-main">
+
+            <!-- Mark Attendance Content -->
+            <div class="portal-tab-content active" id="tab-teach-attendance">
+                <div class="portal-tab-header">
+                    <h2>Record Classroom Attendance</h2>
+                </div>
+                <div style="display:flex; flex-wrap:wrap; gap:10px; margin-bottom:15px; align-items:flex-end;">
+                    <div class="form-group" style="margin-bottom:0; width:150px;">
+                        <label for="att-class">Select Stream</label>
+                        <select id="att-class" class="form-control">
+                            <option>First Year B.Sc.</option>
+                            <option>Second Year B.Sc.</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="margin-bottom:0; width:150px;">
+                        <label for="att-date">Attendance Date</label>
+                        <input type="date" id="att-date" class="form-control">
+                    </div>
+                </div>
+                <div id="attendance-alert" style="display:none; padding: 10px; border-radius: 4px; margin-bottom: 10px; font-size: 0.85rem; font-weight: 500;"></div>
+                <div class="portal-table-container">
+                    <table class="portal-table">
+                        <thead>
+                            <tr>
+                                <th>Roll Number</th>
+                                <th>Student Name</th>
+                                <th>Present (P)</th>
+                                <th>Absent (A)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="attendance-tbody">
+                            <!-- Populated dynamically -->
+                            <tr><td colspan="4" style="text-align:center;">Loading directory...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <button id="save-attendance-btn" class="btn btn-green" style="margin-top:10px;">Save Attendance</button>
+            </div>
+
+            <!-- Assign Homework Content -->
+            <div class="portal-tab-content" id="tab-teach-homework">
+                <div class="portal-tab-header">
+                    <h2>Assign New Homework</h2>
+                </div>
+                <div id="homework-alert" style="display:none; padding: 10px; border-radius: 4px; margin-bottom: 10px; font-size: 0.85rem; font-weight: 500;"></div>
+                <form id="homework-form" style="display: flex; flex-direction: column; gap: 15px; margin-top: 10px;">
+                    <div class="form-group">
+                        <label for="hw-title">Homework Title</label>
+                        <input type="text" id="hw-title" class="form-control" placeholder="e.g., Physics Lab Report 4" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="hw-date">Submission Deadline Date</label>
+                        <input type="date" id="hw-date" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="hw-desc">Instructions & Details</label>
+                        <textarea id="hw-desc" class="form-control" rows="4" placeholder="Detail description of assignments..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-green" style="align-self:flex-start; padding:8px 18px;">Publish Homework</button>
+                </form>
+            </div>
+
+            <!-- Record Marks Content -->
+            <div class="portal-tab-content" id="tab-teach-marks">
+                <div class="portal-tab-header">
+                    <h2>Record Student Marks</h2>
+                </div>
+                <div style="display:flex; flex-wrap:wrap; gap:10px; margin-bottom:15px; align-items:flex-end;">
+                    <div class="form-group" style="margin-bottom:0; width:150px;">
+                        <label for="exam-sel">Select Exam</label>
+                        <select id="exam-sel" class="form-control">
+                            <option>Mid-Term Exam</option>
+                            <option>Final Exam</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="margin-bottom:0; width:150px;">
+                        <label for="subject-sel">Select Subject</label>
+                        <select id="subject-sel" class="form-control">
+                            <option>[Subject Room A]</option>
+                            <option>[Subject Room B]</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-green" onclick="alert('Subject grading sheet loaded.');" style="padding:8px 12px; font-size:0.8rem;">Load Grading Sheet</button>
+                </div>
+                <div class="portal-table-container">
+                    <table class="portal-table">
+                        <thead>
+                            <tr>
+                                <th>Roll Number</th>
+                                <th>Student Name</th>
+                                <th>Marks Obtained (Max: 100)</th>
+                                <th>Remarks</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>MBD-2026-041</td>
+                                <td>Amit Sharma [Placeholder]</td>
+                                <td><input type="number" class="form-control" style="width: 80px;" value="85" max="100"></td>
+                                <td><input type="text" class="form-control" value="Good performance"></td>
+                            </tr>
+                            <tr>
+                                <td>MBD-2026-042</td>
+                                <td>Rahul Kumar [Placeholder]</td>
+                                <td><input type="number" class="form-control" style="width: 80px;" value="82" max="100"></td>
+                                <td><input type="text" class="form-control" value="Good performance"></td>
+                            </tr>
+                            <tr>
+                                <td>MBD-2026-043</td>
+                                <td>Priya Patel [Placeholder]</td>
+                                <td><input type="number" class="form-control" style="width: 80px;" value="64" max="100"></td>
+                                <td><input type="text" class="form-control" value="Needs improvement"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <button class="btn btn-green" onclick="alert('Marks records stored successfully.');" style="margin-top:10px;">Save Marks List</button>
+            </div>
+
+            <!-- Post Notice Content -->
+            <div class="portal-tab-content" id="tab-teach-notices">
+                <div class="portal-tab-header">
+                    <h2>Publish Notice to Notice Board</h2>
+                </div>
+                <form onsubmit="alert('Notice uploaded. It will appear on the main website notice board after approval.'); this.reset(); return false;" style="display: flex; flex-direction: column; gap: 15px; margin-top: 10px;">
+                    <div class="form-group">
+                        <label for="note-title">Notice Headline</label>
+                        <input type="text" id="note-title" class="form-control" placeholder="Notice Title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="note-level">Notification Level</label>
+                        <select id="note-level" class="form-control" required>
+                            <option>Stream Level only</option>
+                            <option>Entire College</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="note-desc">Description Content</label>
+                        <textarea id="note-desc" class="form-control" rows="5" placeholder="Write notice details..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-green" style="align-self:flex-start; padding:8px 18px;">Publish Notice</button>
+                </form>
+            </div>
+
+            <!-- Student Directory Content -->
+            <div class="portal-tab-content" id="tab-teach-students">
+                <div class="portal-tab-header">
+                    <h2>Assigned Classroom Directory</h2>
+                </div>
+                <div class="portal-table-container">
+                    <table class="portal-table">
+                        <thead>
+                            <tr>
+                                <th>Roll No</th>
+                                <th>Student Name</th>
+                                <th>Father's Name</th>
+                                <th>Home Address</th>
+                                <th>Guardian Contact [Placeholder]</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>MBD-2026-041</td>
+                                <td>Amit Sharma</td>
+                                <td>Shri A. Sharma</td>
+                                <td>Doora, Agra</td>
+                                <td>+91 XXXXX XXXXX</td>
+                            </tr>
+                            <tr>
+                                <td>MBD-2026-042</td>
+                                <td>Rahul Kumar</td>
+                                <td>Shri Ramesh Kumar</td>
+                                <td>Doora, Agra</td>
+                                <td>+91 XXXXX XXXXX</td>
+                            </tr>
+                            <tr>
+                                <td>MBD-2026-043</td>
+                                <td>Priya Patel</td>
+                                <td>Shri S. Patel</td>
+                                <td>Doora, Agra</td>
+                                <td>+91 XXXXX XXXXX</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer style="padding: 15px 20px; border-top: none; background-color: #1e293b;">
+        <div class="footer-bottom" style="margin-top: 0; padding-top: 0; border-top: none;">
+            <p>&copy; 2026 MBD College Doora. All Rights Reserved. | Made by Mayank Chahar</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Check session on load
+        window.addEventListener('DOMContentLoaded', function() {
+            const userStr = localStorage.getItem('teacherUser');
+            if (!userStr) {
+                window.location.href = 'teacher-login.html';
+                return;
+            }
+
+            const user = JSON.parse(userStr);
+            document.getElementById('header-teacher-name').textContent = user.name;
+            document.getElementById('header-teacher-dept').textContent = 'Dept: ' + (user.department || 'Academic Staff');
+        });
+
+        // Logout action
+        document.getElementById('logout-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            localStorage.removeItem('teacherUser');
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html>
