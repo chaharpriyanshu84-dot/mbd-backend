@@ -34,23 +34,25 @@
             <div id="alert-box" style="display: none; padding: 10px 15px; border-radius: 4px; margin-bottom: 15px; font-size: 0.85rem; font-weight: 500; background-color: #fee2e2; color: #b91c1c; border: 1px solid #fecaca;"></div>
 
             <!-- Login form that redirects to student dashboard -->
-            <form id="login-form">
-                <div class="form-group">
-    <label for="dob">Date of Birth / Mobile Number</label>
-    <input type="text" id="dob" class="form-control" placeholder="Enter DOB or Mobile" required>
-</div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" class="form-control" placeholder="••••••••" required>
-                </div>
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; font-size: 0.8rem;">
-                    <label style="display: flex; align-items: center; gap: 4px; font-weight: normal; margin-bottom:0;">
-                        <input type="checkbox" checked> Remember session
-                    </label>
-                    <a href="#" onclick="alert('For recovery options, please contact the college IT coordinator.'); return false;">Forgot password?</a>
-                </div>
-                <button type="submit" class="btn btn-green" style="width: 100%; padding: 10px;">Login securely</button>
-            </form>
+           <form id="login-form">
+    <div class="form-group">
+        <label for="reg-no">Registration / Roll Number</label>
+        <input type="text" id="reg-no" class="form-control" placeholder="e.g., MBD-2026-001" required>
+    </div>
+    
+    <div class="form-group">
+        <label for="dob">Date of Birth / Mobile Number</label>
+        <input type="text" id="dob" class="form-control" placeholder="Enter DOB or Mobile" required>
+    </div>
+
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; font-size: 0.8rem;">
+        <label style="display: flex; align-items: center; gap: 4px; font-weight: normal; margin-bottom: 0;">
+            <input type="checkbox" checked> Remember session
+        </label>
+    </div>
+
+    <button type="submit" class="btn btn-green" style="width: 100%; padding: 10px;">Login securely</button>
+</form>
 
             <div class="login-footer">
                 <p>New Student? <a href="student-register.html">Register here</a></p>
